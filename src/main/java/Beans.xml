@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+<bean id="credit" class="m.bankpayment.beans.CreditCardPayment"></bean>
+<bean id="debit" class="m.bankpayment.beans.DebitCardPayment"></bean>
+<bean id="sod" class="m.bankpayment.beans.SodexPayment"></bean>
+<bean id="payment" class="m.bankpayment.beans.PaymentService" >
+<!-- for constru injection constructor-arg tag -->
+<!-- for the constructor injection constructor is present in service class -->
+<!-- for constructor injection u hv to mention ref =dependent class id and name is not complsory bcz we r writnig constr arg tag inside target class bean-->
+
+<!--  <constructor-arg name="payment" ref="debit"/> -->
+
+<!-- for setter inj property tag is used  -->
+<property name="payment" ref="credit"/>
+</bean>
+ </beans>
